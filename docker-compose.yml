@@ -1,0 +1,16 @@
+version: '3.8'  # Versión del archivo de composición
+
+services:
+
+  db:
+    image: mysql:5.7  # Imagen de MySQL
+    container_name: my_db_container
+    environment:
+      MYSQL_ROOT_PASSWORD: examplepassword  # Establece la contraseña del usuario root
+    ports:
+      - "3306:3306"  # Mapea el puerto de la base de datos
+    volumes:
+      - db_data:/var/lib/mysql  # Mapea un volumen persistente para la base de datos
+    
+volumes:
+  db_data:  # Define el volumen persistente
